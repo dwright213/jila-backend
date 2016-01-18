@@ -38,8 +38,18 @@ Rails.application.configure do
   backend_url = 'http://localhost:3000'
 
   config.paperclip_defaults = {
-    :storage => :filesystem,
-    :url => "#{backend_url}/system/:class/:attachment/:id_partition/:style/:class_:id.:extension",
-    :default_url => "#{backend_url}/images/:style/missing.png"
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+      :region => ENV['AWS_REGION']
+    }
   }
+
+  # config.paperclip_defaults = {
+  #   :storage => :filesystem,
+  #   :url => "#{backend_url}/system/:class/:attachment/:id_partition/:style/:class_:id.:extension",
+  #   :default_url => "#{backend_url}/images/:style/missing.png"
+  # }
 end
