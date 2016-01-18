@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+# Ignore environment variables
+.env
+
 /public/system
