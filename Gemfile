@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.1.10'
 
 gem 'dotenv-rails'
 gem 'rails', '4.1.4'
@@ -39,7 +39,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg'
   gem 'pry'
 end
 
